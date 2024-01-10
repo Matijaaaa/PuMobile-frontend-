@@ -1,11 +1,14 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <!--Pozadina-->
+  <v-app style="background-color: #2fcf6f">
+    <div id="app">
+      <div id="nav">
+        <router-link to="/">Home</router-link> |
+        <router-link to="/start">Start</router-link>
+      </div>
+      <router-view />
     </div>
-    <router-view/>
-  </div>
+  </v-app>
 </template>
 
 <style lang="scss">
