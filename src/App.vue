@@ -1,36 +1,13 @@
 <template>
-  <v-app color="teal accent-3">
-    <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+  <!--Pozadina-->
+  <v-app style="background-color: #2fcf6f">
+    <!--Header-->
+    <v-app-bar app dark class="yellow" height="70">
+      <div class="d-flex justify-center mt-1 ml-9">
+        <router-link to="/">
+          <svg-icon size="60" color="green" type="mdi" :path="path"></svg-icon>
+        </router-link>
       </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
     </v-app-bar>
 
     <v-main>
@@ -40,11 +17,22 @@
 </template>
 
 <script>
+import SvgIcon from "@jamescoyle/vue-icon";
+import { mdiScooter } from "@mdi/js";
 export default {
   name: "App",
 
   data: () => ({
     //
   }),
+  name: "my-component",
+  components: {
+    SvgIcon,
+  },
+  data() {
+    return {
+      path: mdiScooter,
+    };
+  },
 };
 </script>
