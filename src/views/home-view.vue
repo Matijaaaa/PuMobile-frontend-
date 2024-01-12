@@ -7,7 +7,7 @@
       <h1 class="text-8xl font-semibold uppercase naslov">PuMobile</h1>
     </div>
     <div class="d-flex justify-center">
-      <h1 class="text-lg font-semibold">Be on the move</h1>
+      <h1 class="text-lg font-semibold naslov2">Be on the move</h1>
     </div>
     <div class="d-flex justify-center mt-16">
       <v-btn
@@ -47,6 +47,17 @@ export default {
 
   color: rgba(0, 0, 0, 0.87);
 
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+.naslov2 {
+  font-family: "Satisfy";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 112px;
+  letter-spacing: -1.5px;
+  color: rgba(0, 0, 0, 0.87);
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 </style>
