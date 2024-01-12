@@ -32,9 +32,9 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Rancho&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap");
 .naslov {
-  font-family: "Rancho";
+  font-family: "Grechen Fuemen";
   font-style: normal;
   font-weight: 400;
   font-size: 110px;
