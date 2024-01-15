@@ -10,7 +10,7 @@
       </h1>
       <form>
         <div class="mt-12 flex justify-center">
-          <h1 class="text-2xl font-semibold login">Email</h1>
+          <h1 class="text-2xl font-semibold login">Info</h1>
         </div>
         <div class="flex justify-center">
           <v-text-field
@@ -28,6 +28,11 @@
             hint="At least 8 characters required"
             class="input-group--focused inline"
           ></v-text-field>
+        </div>
+        <div class="d-flex justify-center mt-16">
+          <v-btn depressed color="blue" to="/home" x-large rounded>
+            Log in
+          </v-btn>
         </div>
       </form>
     </div>
@@ -47,3 +52,21 @@
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 </style>
+<script>
+export default {
+  data: () => ({
+    rules: [
+      (value) => !!value || "Obavezno",
+      (value) => (value && value.length >= 7) || "Min 7 characters",
+      (value) => value.includes("@") || "@ is required",
+    ],
+    email: "",
+    password: "",
+    passwordRules: {
+      required: (value) => !!value || "Required.",
+      min: (v) => v.length >= 8 || "Min 8 characters",
+      emailMatch: () => `The email and password you entered don't match`,
+    },
+  }),
+};
+</script>
