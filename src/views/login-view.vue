@@ -6,7 +6,7 @@
     <div class="mt-6 pl-16">
       <h1 class="text-sm font-semibold login">
         If you don't have an account, click
-        <router-link to="/home" style="color: blue">here!</router-link>
+        <router-link to="/signup" style="color: blue">here!</router-link>
       </h1>
       <form>
         <div class="mt-12 flex justify-center">
