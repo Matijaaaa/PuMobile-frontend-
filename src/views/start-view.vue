@@ -10,7 +10,9 @@
       <v-btn depressed color="blue" to="/login" x-large rounded> Log in </v-btn>
     </div>
     <div class="d-flex justify-center mt-16">
-      <v-btn depressed color="blue" x-large rounded> Sign up </v-btn>
+      <v-btn depressed color="blue" to="/signup" x-large rounded>
+        Sign up
+      </v-btn>
     </div>
   </v-container>
 </template>

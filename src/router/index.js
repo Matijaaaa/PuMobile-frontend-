@@ -4,6 +4,7 @@ import HomeView from "../views/home-view.vue";
 import StartView from "../views/start-view.vue";
 import LoginView from "../views/login-view.vue";
 import SignupView from "../views/signup-view.vue";
+import TimepView from "../views/timep-view.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -26,6 +27,11 @@ const routes = [
     path: "/signup",
     name: "signup",
     component: SignupView,
+  },
+  {
+    path: "/timep",
+    name: "timep",
+    component: TimepView,
   },
 ];
 

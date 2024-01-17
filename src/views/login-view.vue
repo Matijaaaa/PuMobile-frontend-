@@ -30,7 +30,7 @@
           ></v-text-field>
         </div>
         <div class="d-flex justify-center mt-16">
-          <v-btn depressed color="blue" to="/home" x-large rounded>
+          <v-btn depressed color="blue" to="/timep" x-large rounded>
             Log in
           </v-btn>
         </div>
