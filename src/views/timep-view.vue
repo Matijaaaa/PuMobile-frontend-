@@ -14,10 +14,24 @@
     <div class="d-flex justify-center mt-16">
       <date-picker v-model="time2" type="datetime" :min="time1"></date-picker>
     </div>
+    <div class="d-flex justify-center mt-16">
+      <v-btn
+        depressed
+        color="blue"
+        to="/timep"
+        x-large
+        rounded
+        @click.prevent="saveData"
+        :disabled="!timesAreSelected"
+      >
+        Save Times
+      </v-btn>
+    </div>
   </v-container>
 </template>
 
 <script>
+import Store from "../store.js";
 import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
 
@@ -28,6 +42,21 @@ export default {
       time1: null,
       time2: null,
     };
+  },
+  methods: {
+    saveData() {
+      console.log("Saving times:", this.time1, this.time2);
+      Store.time1 = this.time1;
+      Store.time2 = this.time2;
+      this.$router.push({ path: "/home" }); // Replace with your desired path
+    },
+  },
+  computed: {
+    timesAreSelected() {
+      const selected = this.time1 !== null && this.time2 !== null;
+      console.log("Times are selected:", selected);
+      return selected;
+    },
   },
 };
 </script>

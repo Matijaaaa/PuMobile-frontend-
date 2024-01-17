@@ -5,6 +5,7 @@ import StartView from "../views/start-view.vue";
 import LoginView from "../views/login-view.vue";
 import SignupView from "../views/signup-view.vue";
 import TimepView from "../views/timep-view.vue";
+import store from "@/store";
 Vue.use(VueRouter);
 
 const routes = [
@@ -39,6 +40,23 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
+});
+router.beforeEach((to, from, next) => {
+  console.log(
+    "Stara ruta ",
+    from.name,
+    " -> ",
+    to.name,
+    "Korisnik",
+    store.currentUser
+  );
+  const noUser = store.currentUser === null;
+  console.log(noUser);
+  if (noUser && to.meta.needsUser) {
+    next("login");
+  } else {
+    next();
+  }
 });
 
 export default router;
