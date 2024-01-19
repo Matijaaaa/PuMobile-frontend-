@@ -5,9 +5,10 @@
     </div>
     <div class="d-flex justify-center mt-8">
       <h1 class="text-2xl font-semibold login">
-        Please choose time and date of the pickup
+        Please choose time and date of the pickup and drop-off
       </h1>
     </div>
+
     <div class="d-flex justify-center mt-16">
       <date-picker v-model="time1" type="datetime"></date-picker>
     </div>
@@ -48,7 +49,7 @@ export default {
       console.log("Saving times:", this.time1, this.time2);
       Store.time1 = this.time1;
       Store.time2 = this.time2;
-      this.$router.push({ path: "/home" }); // Replace with your desired path
+      this.$router.push({ path: "/checkpoint" });
     },
   },
   computed: {

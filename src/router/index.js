@@ -6,6 +6,7 @@ import LoginView from "../views/login-view.vue";
 import SignupView from "../views/signup-view.vue";
 import TimepView from "../views/timep-view.vue";
 import store from "@/store";
+import CheckpointView from "../views/checkpoint-view.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -33,6 +34,11 @@ const routes = [
     path: "/timep",
     name: "timep",
     component: TimepView,
+  },
+  {
+    path: "/checkpoint",
+    name: "checkpoint",
+    component: CheckpointView,
   },
 ];
 
