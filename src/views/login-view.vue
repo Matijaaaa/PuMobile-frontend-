@@ -16,18 +16,16 @@
           <v-text-field
             class="inline"
             label="Enter your email addres"
-            hide-details="auto"
-          ></v-text-field>
+            hide-details="auto"></v-text-field>
         </div>
         <div class="mt-8 flex justify-center">
           <v-text-field
             append-icon="mdi-map-marker ? 'mdi-eye' : 'mdi-eye-off'"
-            type="show3 ? 'text' : 'password'"
+            type="password"
             name="input-10-2"
             label="Enter Password"
             hint="At least 8 characters required"
-            class="input-group--focused inline"
-          ></v-text-field>
+            class="input-group--focused inline"></v-text-field>
         </div>
         <div class="d-flex justify-center mt-16">
           <v-btn depressed color="blue" to="/timep" x-large rounded>

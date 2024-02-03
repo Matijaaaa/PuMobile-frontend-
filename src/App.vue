@@ -19,13 +19,10 @@
 <script>
 import SvgIcon from "@jamescoyle/vue-icon";
 import { mdiScooter } from "@mdi/js";
+import { getHelloWorld, register } from "./axios";
+
 export default {
   name: "App",
-
-  data: () => ({
-    //
-  }),
-  name: "my-component",
   components: {
     SvgIcon,
   },
@@ -33,6 +30,21 @@ export default {
     return {
       path: mdiScooter,
     };
+  },
+  async mounted() {
+    this.getHelloWorld();
+
+    this.testRegister();
+  },
+  methods: {
+    async getHelloWorld() {
+      const response = await getHelloWorld();
+      console.log(response);
+    },
+    async testRegister() {
+      const response = await register();
+      console.log(response);
+    },
   },
 };
 </script>
