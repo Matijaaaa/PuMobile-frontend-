@@ -3,7 +3,12 @@
     <div class="d-flex justify-center mt-16">
       <h1 class="text-8xl font-semibold uppercase tekst">PuMobile</h1>
     </div>
-    <div class="mt-4 d-flex justify-center">
+    <div class="d-flex justify-center mt-2">
+      <h1 class="text-sm font-semibold login">
+        Please enter your desired location for pickup
+      </h1>
+    </div>
+    <div class="mt-15 d-flex justify-center">
       <b-dropdown :text="selectedOptionText" variant="primary">
         <b-dropdown-item @click="selectOption('Gardini')"
           >Gardini</b-dropdown-item
@@ -34,18 +39,23 @@
 </template>
 
 <script>
+import store from "../store.js";
+
 export default {
   data() {
     return {
-      selectedOptionText: "Nearest location",
+      selectedOptionText: store.selectedLocation,
     };
   },
   methods: {
     selectOption(option) {
       this.selectedOptionText = option;
+      store.selectedLocation = option; // Update the store when the option is selected
     },
     saveData() {
-      // Add your save logic here
+      // Add your save logic here using the store data if needed
+      console.log("Selected Location:", store.selectedLocation);
+      // Redirect or perform other actions as needed
     },
   },
   computed: {
@@ -57,12 +67,6 @@ export default {
 </script>
 
 <style scoped>
-/* Center the button */
-.mt-4 {
-  text-align: center;
-}
-
-/* Style the button with a blue background */
 .b-dropdown-toggle {
   background-color: blue;
 }
