@@ -50,12 +50,10 @@ export default {
   methods: {
     selectOption(option) {
       this.selectedOptionText = option;
-      store.selectedLocation = option; // Update the store when the option is selected
+      store.selectedLocation = option;
     },
     saveData() {
-      // Add your save logic here using the store data if needed
       console.log("Selected Location:", store.selectedLocation);
-      // Redirect or perform other actions as needed
     },
   },
   computed: {
