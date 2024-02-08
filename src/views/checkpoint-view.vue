@@ -68,6 +68,15 @@ export default {
     saveData() {
       console.log("Selected Location:", store.selectedLocation);
     },
+    reserveScooter() {
+      if (this.isOptionSelected) {
+        this.$store.reserveScooter({
+          location: this.selectedLocation,
+          count: 1,
+        });
+        console.log(`Reservation made for ${this.selectedLocation}`);
+      }
+    },
   },
   computed: {
     isOptionSelected() {
