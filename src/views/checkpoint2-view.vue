@@ -5,11 +5,11 @@
     </div>
     <div class="d-flex justify-center mt-2">
       <h1 class="text-sm font-semibold login">
-        Please enter your desired location for pickup
+        Please enter your desired location for drop-off
       </h1>
     </div>
     <div class="mt-15 d-flex justify-center">
-      <b-dropdown :text="selectedOptionText" variant="primary">
+      <b-dropdown :text="selectedOption2Text" variant="primary">
         <b-dropdown-item @click="selectOption('Gardini')"
           >Gardini</b-dropdown-item
         >
@@ -39,7 +39,7 @@
       <v-btn
         depressed
         color="blue"
-        to="/checkpoint2"
+        to="/timep"
         x-large
         rounded
         @click.prevent="saveData"
@@ -57,21 +57,21 @@ import store from "../store.js";
 export default {
   data() {
     return {
-      selectedOptionText: store.selectedLocation,
+      selectedOption2Text: store.selectedLocation2,
     };
   },
   methods: {
     selectOption(option) {
-      this.selectedOptionText = option;
-      store.selectedLocation = option;
+      this.selectedOption2Text = option;
+      store.selectedLocation2 = option;
     },
     saveData() {
-      console.log("Selected Location:", store.selectedLocation);
+      console.log("Selected Location2:", store.selectedLocation2);
     },
   },
   computed: {
     isOptionSelected() {
-      return this.selectedOptionText !== "Nearest location";
+      return this.selectedOption2Text !== "Nearest location";
     },
   },
 };
