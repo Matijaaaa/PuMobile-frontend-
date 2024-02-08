@@ -8,6 +8,7 @@ import TimepView from "../views/timep-view.vue";
 import store from "@/store";
 import CheckpointView from "../views/checkpoint-view.vue";
 import Checkpoint2View from "../views/checkpoint2-view.vue";
+import AvailableView from "../views/available-view.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -45,6 +46,11 @@ const routes = [
     path: "/checkpoint2",
     name: "checkpoint2",
     component: Checkpoint2View,
+  },
+  {
+    path: "/available",
+    name: "available",
+    component: AvailableView,
   },
 ];
 

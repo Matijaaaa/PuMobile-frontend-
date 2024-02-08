@@ -39,7 +39,7 @@
       <v-btn
         depressed
         color="blue"
-        to="/checkpoint2"
+        to="/available"
         x-large
         rounded
         @click.prevent="saveData"
