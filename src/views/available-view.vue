@@ -8,7 +8,9 @@
     </div>
     <div class="d-flex justify-center">
       <h1 class="text-lg font-semibold naslov2">
-        Number of scooters available :
+        Number of scooters available at {{ selectedTime }} -
+        {{ selectedLocation }}:
+        {{ numberOfScooters }}
       </h1>
     </div>
     <div class="d-flex justify-center mt-16">
@@ -18,11 +20,41 @@
         x-large
         rounded
         color="blue"
-        to="/start"
+        @click="makeReservation"
       >
         <v-icon>mdi-plus</v-icon>
-        Get started</v-btn
-      >
+        Next
+      </v-btn>
     </div>
   </v-container>
 </template>
+
+<script>
+import store from "../store.js";
+
+export default {
+  computed: {
+    selectedLocation() {
+      return store.selectedLocation;
+    },
+    selectedTime() {
+      return store.selectedTime ? new Date(store.selectedTime) : null;
+    },
+    numberOfScooters() {
+      console.log("Selected Location:", this.selectedLocation);
+      console.log("Selected Time:", this.selectedTime);
+
+      return (
+        store.scooterAvailability[this.selectedLocation]?.[this.selectedTime] ||
+        0
+      );
+    },
+  },
+
+  methods: {
+    makeReservation() {
+      store.reserveScooter();
+    },
+  },
+};
+</script>
