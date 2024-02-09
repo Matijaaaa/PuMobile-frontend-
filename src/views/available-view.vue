@@ -8,9 +8,7 @@
     </div>
     <div class="d-flex justify-center">
       <h1 class="text-lg font-semibold naslov2">
-        Number of scooters available at {{ selectedTime }} -
-        {{ selectedLocation }}:
-        {{ numberOfScooters }}
+        Selected time: {{ selectedTime }}
       </h1>
     </div>
     <div class="d-flex justify-center mt-16">
@@ -20,7 +18,7 @@
         x-large
         rounded
         color="blue"
-        @click="makeReservation"
+        @click="navigateToCheckpoint2"
       >
         <v-icon>mdi-plus</v-icon>
         Next
@@ -34,26 +32,13 @@ import store from "../store.js";
 
 export default {
   computed: {
-    selectedLocation() {
-      return store.selectedLocation;
-    },
     selectedTime() {
-      return store.selectedTime ? new Date(store.selectedTime) : null;
-    },
-    numberOfScooters() {
-      console.log("Selected Location:", this.selectedLocation);
-      console.log("Selected Time:", this.selectedTime);
-
-      return (
-        store.scooterAvailability[this.selectedLocation]?.[this.selectedTime] ||
-        0
-      );
+      return store.selectedTime;
     },
   },
-
   methods: {
-    makeReservation() {
-      store.reserveScooter();
+    navigateToCheckpoint2() {
+      this.$router.push({ path: "/checkpoint2" });
     },
   },
 };

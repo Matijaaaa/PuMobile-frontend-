@@ -39,13 +39,13 @@
       <v-btn
         depressed
         color="blue"
-        to="/available"
+        to="/checkpoint2"
         x-large
         rounded
         @click.prevent="saveData"
         :disabled="!isOptionSelected"
       >
-        Save Times
+        Save Location
       </v-btn>
     </div>
   </v-container>
@@ -62,24 +62,17 @@ export default {
   },
   methods: {
     selectOption(option) {
+      console.log("Option Selected:", option);
       this.selectedOptionText = option;
       store.selectedLocation = option;
     },
     saveData() {
       console.log("Selected Location:", store.selectedLocation);
     },
-    reserveScooter() {
-      if (this.isOptionSelected) {
-        this.$store.reserveScooter({
-          location: this.selectedLocation,
-          count: 1,
-        });
-        console.log(`Reservation made for ${this.selectedLocation}`);
-      }
-    },
   },
   computed: {
     isOptionSelected() {
+      console.log("Selected Option:", this.selectedOptionText);
       return this.selectedOptionText !== "Nearest location";
     },
   },

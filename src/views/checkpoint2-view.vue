@@ -39,13 +39,13 @@
       <v-btn
         depressed
         color="blue"
-        to="/timep"
+        to="/available"
         x-large
         rounded
         @click.prevent="saveData"
         :disabled="!isOptionSelected"
       >
-        Save Times
+        Save Location
       </v-btn>
     </div>
   </v-container>
