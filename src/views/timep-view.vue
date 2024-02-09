@@ -47,9 +47,8 @@ export default {
   methods: {
     saveData() {
       console.log("Saving times:", this.time1, this.time2);
-      Store.selectedTime = this.time1;
-      Store.time1 = this.time1;
-      Store.time2 = this.time2;
+      Store.selectedPickupTime = this.time1;
+      Store.selectedDropOffTime = this.time2;
       this.$router.push({ path: "/checkpoint" });
     },
   },

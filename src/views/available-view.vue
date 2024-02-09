@@ -7,9 +7,30 @@
       <h1 class="text-8xl font-semibold uppercase naslov">PuMobile</h1>
     </div>
     <div class="d-flex justify-center">
-      <h1 class="text-lg font-semibold naslov2">
-        Selected time: {{ selectedTime }}
-      </h1>
+      <div>
+        <h1 class="text-sm font-semibold login">Pickup Information:</h1>
+        <h1 class="text-sm font-semibold login">
+          Location: {{ pickupLocation }}
+        </h1>
+        <h1 class="text-sm font-semibold login">
+          Date: {{ formattedPickupDate }}
+        </h1>
+        <h1 class="text-sm font-semibold login">
+          Time: {{ formattedPickupTime }}
+        </h1>
+      </div>
+      <div class="ml-8">
+        <h1 class="text-sm font-semibold login">Drop-off Information:</h1>
+        <h1 class="text-sm font-semibold login">
+          Location: {{ dropOffLocation }}
+        </h1>
+        <h1 class="text-sm font-semibold login">
+          Date: {{ formattedDropOffDate }}
+        </h1>
+        <h1 class="text-sm font-semibold login">
+          Time: {{ formattedDropOffTime }}
+        </h1>
+      </div>
     </div>
     <div class="d-flex justify-center mt-16">
       <v-btn
@@ -32,8 +53,27 @@ import store from "../store.js";
 
 export default {
   computed: {
-    selectedTime() {
-      return store.selectedTime;
+    pickupLocation() {
+      return store.selectedLocation;
+    },
+    dropOffLocation() {
+      return store.selectedLocation2;
+    },
+    formattedPickupDate() {
+      const pickupDate = store.selectedPickupTime;
+      return pickupDate ? new Date(pickupDate).toLocaleDateString() : "";
+    },
+    formattedPickupTime() {
+      const pickupTime = store.selectedPickupTime;
+      return pickupTime ? new Date(pickupTime).toLocaleTimeString() : "";
+    },
+    formattedDropOffDate() {
+      const dropOffDate = store.selectedDropOffTime;
+      return dropOffDate ? new Date(dropOffDate).toLocaleDateString() : "";
+    },
+    formattedDropOffTime() {
+      const dropOffTime = store.selectedDropOffTime;
+      return dropOffTime ? new Date(dropOffTime).toLocaleTimeString() : "";
     },
   },
   methods: {

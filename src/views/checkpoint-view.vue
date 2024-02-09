@@ -10,8 +10,8 @@
     </div>
     <div class="mt-15 d-flex justify-center">
       <b-dropdown :text="selectedOptionText" variant="primary">
-        <b-dropdown-item @click="selectOption('Gardini')"
-          >Gardini</b-dropdown-item
+        <b-dropdown-item @click="selectOption('Giardini')"
+          >Giardini</b-dropdown-item
         >
         <b-dropdown-item @click="selectOption('Forum')">Forum</b-dropdown-item>
         <b-dropdown-item @click="selectOption('Tržnica')"
