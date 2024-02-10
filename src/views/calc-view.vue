@@ -23,9 +23,7 @@
       </h1>
     </div>
     <div class="d-flex justify-center mt-16">
-      <v-btn color="blue" x-large rounded @click.prevent="handleButtonClick">
-        Continue
-      </v-btn>
+      <v-btn color="blue" x-large rounded to="/card"> Continue </v-btn>
     </div>
   </v-container>
 </template>
