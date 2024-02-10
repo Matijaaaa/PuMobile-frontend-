@@ -39,7 +39,7 @@
         x-large
         rounded
         color="blue"
-        @click="navigateToCheckpoint2"
+        to="/calc"
       >
         <v-icon>mdi-plus</v-icon>
         Next

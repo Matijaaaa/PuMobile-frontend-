@@ -9,6 +9,7 @@ import store from "@/store";
 import CheckpointView from "../views/checkpoint-view.vue";
 import Checkpoint2View from "../views/checkpoint2-view.vue";
 import AvailableView from "../views/available-view.vue";
+import CalcView from "../views/calc-view.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -51,6 +52,11 @@ const routes = [
     path: "/available",
     name: "available",
     component: AvailableView,
+  },
+  {
+    path: "/calc",
+    name: "calc",
+    component: CalcView,
   },
 ];
 
