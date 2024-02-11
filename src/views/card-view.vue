@@ -39,7 +39,9 @@
           <v-divider></v-divider>
 
           <v-card-actions>
-            <v-btn color="primary" @click="submitCardInfo">Submit</v-btn>
+            <router-link to="/end">
+              <v-btn color="primary" :disabled="!isFormValid">Submit</v-btn>
+            </router-link>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -55,6 +57,12 @@ export default {
       expirationDate: "",
       cardHolder: "",
     };
+  },
+  computed: {
+    isFormValid() {
+      // Check if all required fields are filled
+      return this.cardNumber && this.expirationDate && this.cardHolder;
+    },
   },
   methods: {
     submitCardInfo() {

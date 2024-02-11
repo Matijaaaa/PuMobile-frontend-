@@ -11,6 +11,7 @@ import Checkpoint2View from "../views/checkpoint2-view.vue";
 import AvailableView from "../views/available-view.vue";
 import CalcView from "../views/calc-view.vue";
 import CardView from "../views/card-view.vue";
+import EndView from "../views/end-view.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -63,6 +64,11 @@ const routes = [
     path: "/card",
     name: "card",
     component: CardView,
+  },
+  {
+    path: "/end",
+    name: "end",
+    component: EndView,
   },
 ];
 
