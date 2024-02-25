@@ -11,15 +11,24 @@
     </div>
     <div class="d-flex justify-center mt-4">
       <p class="text-lg end3 text-center">
-        Thany you for choosing our services. Your reservation has been made and
-        your scooter will be waiting for you at chosen location.
+        Thany you for choosing our services. Your reservation will be made after
+        you click on the Go! button and your scooter will be waiting for you at
+        a chosen location.
       </p>
     </div>
     <div class="d-flex justify-center mt-16">
-      <v-btn class="py-8" elevation="24" x-large rounded color="blue" to="/">
-        <v-icon>mdi-plus</v-icon>
-        End</v-btn
+      <v-btn
+        @click="saveReservationData"
+        class="py-8"
+        elevation="24"
+        x-large
+        rounded
+        color="blue"
+        to="/"
       >
+        <v-icon>mdi-plus</v-icon>
+        Go!
+      </v-btn>
     </div>
   </v-container>
 </template>
@@ -64,3 +73,35 @@
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 </style>
+<script>
+import axios from "@/axios";
+export default {
+  data() {
+    return {
+      reservationData: {
+        selectedLocation: "Nearest location",
+        selectedLocation2: "Nearest location",
+        selectedTime: null,
+        selectedPickupTime: null,
+        selectedDropOffTime: null,
+        cardNumber: "1234 5678 9012 3456",
+        expirationDate: "12/23",
+        cardHolder: "John Doe",
+      },
+    };
+  },
+  methods: {
+    async saveReservationData() {
+      try {
+        const response = await axios.post(
+          "/app/reservation",
+          this.reservationData
+        );
+        console.log("Reservation saved successfully:", response.data);
+      } catch (error) {
+        console.error("Error saving reservation:", error);
+      }
+    },
+  },
+};
+</script>

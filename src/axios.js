@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:5000", //adresa backenda
+  baseURL: "http://localhost:3000", //adresa backenda
   timeout: 3000, // 3 sekunda
 });
 
@@ -25,5 +25,17 @@ async function register(email, password) {
     console.error(error);
   }
 }
+async function saveReservation(reservationData) {
+  try {
+    let response = await instance.post("/app/reservation", reservationData);
+    console.log("Reservation saved successfully:", response.data);
+    // You can return or handle the response data as needed
+    return response.data;
+  } catch (error) {
+    console.error("Error saving reservation:", error);
+    // Handle error as needed
+    throw error; // Rethrow the error to handle it in the component
+  }
+}
 
-export { getHelloWorld, register };
+export { getHelloWorld, register, saveReservation };
