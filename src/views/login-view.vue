@@ -32,14 +32,7 @@
           ></v-text-field>
         </div>
         <div class="d-flex justify-center mt-16">
-          <v-btn
-            @click="login"
-            depressed
-            color="blue"
-            to="/timep"
-            x-large
-            rounded
-          >
+          <v-btn @click="login()" depressed color="blue" x-large rounded>
             Log in
           </v-btn>
         </div>
