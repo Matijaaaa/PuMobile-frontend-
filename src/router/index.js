@@ -77,7 +77,7 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 });
-router.beforeEach((to, from, next) => {
+/*router.beforeEach((to, from, next) => {
   console.log(
     "Stara ruta ",
     from.name,
@@ -93,6 +93,6 @@ router.beforeEach((to, from, next) => {
   } else {
     next();
   }
-});
+});*/
 
 export default router;

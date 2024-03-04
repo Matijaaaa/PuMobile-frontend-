@@ -16,7 +16,9 @@
           <v-text-field
             class="inline"
             label="Enter your email addres"
-            hide-details="auto"></v-text-field>
+            hide-details="auto"
+            v-model="email"
+          ></v-text-field>
         </div>
         <div class="mt-8 flex justify-center">
           <v-text-field
@@ -25,10 +27,19 @@
             name="input-10-2"
             label="Enter Password"
             hint="At least 8 characters required"
-            class="input-group--focused inline"></v-text-field>
+            class="input-group--focused inline"
+            v-model="password"
+          ></v-text-field>
         </div>
         <div class="d-flex justify-center mt-16">
-          <v-btn depressed color="blue" to="/timep" x-large rounded>
+          <v-btn
+            @click="login"
+            depressed
+            color="blue"
+            to="/timep"
+            x-large
+            rounded
+          >
             Log in
           </v-btn>
         </div>
@@ -51,6 +62,8 @@
 }
 </style>
 <script>
+import { Auth } from "@/axios.js";
+
 export default {
   data: () => ({
     rules: [
@@ -66,5 +79,11 @@ export default {
       emailMatch: () => `The email and password you entered don't match`,
     },
   }),
+  methods: {
+    async login() {
+      let success = await Auth.login(this.email, this.password);
+      console.log("Rezultat prijave", success);
+    },
+  },
 };
 </script>

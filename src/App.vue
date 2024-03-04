@@ -19,7 +19,7 @@
 <script>
 import SvgIcon from "@jamescoyle/vue-icon";
 import { mdiScooter } from "@mdi/js";
-import { getHelloWorld, register } from "./axios";
+import { getHelloWorld } from "./axios";
 
 export default {
   name: "App",
@@ -34,17 +34,17 @@ export default {
   async mounted() {
     this.getHelloWorld();
 
-    this.testRegister();
+    //this.testRegister();
   },
   methods: {
     async getHelloWorld() {
       const response = await getHelloWorld();
       console.log(response);
     },
-    async testRegister() {
+    /*async testRegister() {
       const response = await register();
       console.log(response);
-    },
+    },*/
   },
 };
 </script>

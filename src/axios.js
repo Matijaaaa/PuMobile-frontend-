@@ -14,7 +14,7 @@ async function getHelloWorld() {
   }
 }
 
-async function register(email, password) {
+/*async function register(email, password) {
   try {
     let response = await instance.post("/register-test", {
       email: "admin@gmail.com",
@@ -36,6 +36,19 @@ async function saveReservation(reservationData) {
     // Handle error as needed
     throw error; // Rethrow the error to handle it in the component
   }
-}
+}*/
 
-export { getHelloWorld, register, saveReservation };
+let Auth = {
+  async login(email, password) {
+    let response = await instance.post("/auth", {
+      email: email,
+      password: password,
+    });
+
+    let user = response.data;
+    localStorage.setItem("user", user);
+    return true;
+  },
+};
+
+export { getHelloWorld, Auth };
