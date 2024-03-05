@@ -46,8 +46,14 @@ let Auth = {
     });
 
     let user = response.data;
-    localStorage.setItem("user", user);
+    localStorage.setItem("user", JSON.stringify(user));
     return true;
+  },
+  logout() {
+    localStorage.removeItem("user");
+  },
+  getUser() {
+    return JSON.parse(localStorage.getItem("user"));
   },
 };
 

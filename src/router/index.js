@@ -12,6 +12,7 @@ import AvailableView from "../views/available-view.vue";
 import CalcView from "../views/calc-view.vue";
 import CardView from "../views/card-view.vue";
 import EndView from "../views/end-view.vue";
+import { Auth } from "@/axios.js";
 Vue.use(VueRouter);
 
 const routes = [
@@ -77,22 +78,18 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 });
-/*router.beforeEach((to, from, next) => {
-  console.log(
-    "Stara ruta ",
-    from.name,
-    " -> ",
-    to.name,
-    "Korisnik",
-    store.currentUser
-  );
-  const noUser = store.currentUser === null;
-  console.log(noUser);
-  if (noUser && to.meta.needsUser) {
-    next("login");
-  } else {
-    next();
+
+router.beforeEach((to, from, next) => {
+  const javneStranice = ["/login", "/signup"];
+  const loginPotreban = !javneStranice.includes(to.path);
+  const user = Auth.getUser();
+
+  if (loginPotreban && !user) {
+    next("/login");
+    return;
   }
-});*/
+
+  next();
+});
 
 export default router;

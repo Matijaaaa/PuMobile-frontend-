@@ -76,6 +76,10 @@ export default {
     async login() {
       let success = await Auth.login(this.email, this.password);
       console.log("Rezultat prijave", success);
+
+      if (success == true) {
+        this.$router.push({ name: "timep" });
+      }
     },
   },
 };
