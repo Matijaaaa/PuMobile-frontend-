@@ -1,4 +1,5 @@
 import axios from "axios";
+import $router from "@/router";
 
 const instance = axios.create({
   baseURL: "http://localhost:3000", //adresa backenda
@@ -14,29 +15,17 @@ async function getHelloWorld() {
   }
 }
 
-/*async function register(email, password) {
-  try {
-    let response = await instance.post("/register-test", {
-      email: "admin@gmail.com",
-      password: "admin1234",
-    });
-    console.log("REGISTER TEST:", response.data);
-  } catch (error) {
-    console.error(error);
+instance.interceptors.request.use((request) => {
+  let token = Auth.getToken();
+  if (!token) {
+    $router.go();
+    return;
+  } else {
+    request.headers["Authorization"] = "Bearer " + token;
   }
-}
-async function saveReservation(reservationData) {
-  try {
-    let response = await instance.post("/app/reservation", reservationData);
-    console.log("Reservation saved successfully:", response.data);
-    // You can return or handle the response data as needed
-    return response.data;
-  } catch (error) {
-    console.error("Error saving reservation:", error);
-    // Handle error as needed
-    throw error; // Rethrow the error to handle it in the component
-  }
-}*/
+
+  return request;
+});
 
 let Auth = {
   async login(email, password) {
@@ -54,6 +43,14 @@ let Auth = {
   },
   getUser() {
     return JSON.parse(localStorage.getItem("user"));
+  },
+  getToken() {
+    let user = Auth.getUser();
+    if (user && user.token) {
+      return user.token;
+    } else {
+      return false;
+    }
   },
 };
 
