@@ -16,16 +16,23 @@ async function getHelloWorld() {
 }
 
 instance.interceptors.request.use((request) => {
-  let token = Auth.getToken();
-  if (!token) {
-    $router.go();
-    return;
-  } else {
-    request.headers["Authorization"] = "Bearer " + token;
+  try {
+    request.headers["Authorization"] = "Bearer " + Auth.getToken();
+  } catch (e) {
+    console.error(e);
   }
-
   return request;
 });
+
+instance.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response.status == 401 || error.response.status == 403) {
+      Auth.logout();
+      $router.go();
+    }
+  }
+);
 
 let Auth = {
   async login(email, password) {
