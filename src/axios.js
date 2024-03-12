@@ -40,10 +40,22 @@ let Auth = {
       email: email,
       password: password,
     });
+    console.log(response);
 
     let user = response.data;
     localStorage.setItem("user", JSON.stringify(user));
     return true;
+  },
+  async register(email, password) {
+    try {
+      let response = await instance.post("/users", {
+        email: email,
+        password: password,
+      });
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
   },
   logout() {
     localStorage.removeItem("user");

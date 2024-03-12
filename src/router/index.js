@@ -80,7 +80,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const javneStranice = ["/login", "/signup"];
+  const javneStranice = ["/home", "/login", "/signup"];
   const loginPotreban = !javneStranice.includes(to.path);
   const user = Auth.getUser();
 
