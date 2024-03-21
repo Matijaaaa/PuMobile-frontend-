@@ -1,5 +1,6 @@
 import axios from "axios";
 import $router from "@/router";
+import store from "./store.js";
 
 const instance = axios.create({
   baseURL: "http://localhost:3000", //adresa backenda
@@ -73,4 +74,27 @@ let Auth = {
   },
 };
 
-export { getHelloWorld, Auth };
+let PuMobile = {
+  async saveReservationData() {
+    try {
+      console.log("saveReservationData_inaxios");
+      const response = await instance.post("/app/reservation", {
+        selectedLocation: store.selectedLocation,
+        selectedLocation2: store.selectedLocation2,
+        selectedTime: store.selectedTime,
+        selectedPickupTime: store.selectedPickupTime,
+        selectedDropOffTime: store.selectedDropOffTime,
+        cardNumber: store.cardNumber,
+        expirationDate: store.expirationDate,
+        cardHolder: store.cardHolder,
+        Price: store.Price,
+      });
+      console.log("Reservation saved successfully:", response);
+      return response;
+    } catch (error) {
+      console.error("Error saving reservation:", error);
+    }
+  },
+};
+
+export { getHelloWorld, Auth, PuMobile };

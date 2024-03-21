@@ -7,4 +7,5 @@ export default {
   cardNumber: "",
   expirationDate: "",
   cardHolder: "",
+  Price: 0,
 };

@@ -18,13 +18,12 @@
     </div>
     <div class="d-flex justify-center mt-16">
       <v-btn
-        @click="saveReservationData"
+        @click="saveReservationData()"
         class="py-8"
         elevation="24"
         x-large
         rounded
         color="blue"
-        to="/"
       >
         <v-icon>mdi-plus</v-icon>
         Go!
@@ -74,30 +73,18 @@
 }
 </style>
 <script>
-import axios from "axios";
+import { PuMobile } from "../axios";
 export default {
   data() {
-    return {
-      reservationData: {
-        selectedLocation: "Nearest location",
-        selectedLocation2: "Nearest location",
-        selectedTime: null,
-        selectedPickupTime: null,
-        selectedDropOffTime: null,
-        cardNumber: "1234 5678 9012 3456",
-        expirationDate: "12/23",
-        cardHolder: "John Doe",
-      },
-    };
+    return {};
   },
   methods: {
     async saveReservationData() {
       try {
-        const response = await axios.post(
-          "/app/reservation",
-          this.reservationData
-        );
-        console.log("Reservation saved successfully:", response.data);
+        console.log("saveReservationData");
+        let response = await PuMobile.saveReservationData();
+        this.$router.push({ name: "home-view" });
+        return response;
       } catch (error) {
         console.error("Error saving reservation:", error);
       }

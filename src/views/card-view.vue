@@ -13,7 +13,6 @@
               v-model="cardNumber"
               label="Card Number"
               hint="xxxx xxxx xxxx xxxx"
-              @input="formatCardNumber"
               maxlength="19"
             ></v-text-field>
             <v-row>
@@ -22,7 +21,6 @@
                   v-model="expirationDate"
                   label="Expiration Date"
                   hint="MM/YY"
-                  @input="formatExpirationDate"
                   maxlength="5"
                 ></v-text-field>
               </v-col>
@@ -39,9 +37,12 @@
           <v-divider></v-divider>
 
           <v-card-actions>
-            <router-link to="/end">
-              <v-btn color="primary" :disabled="!isFormValid">Submit</v-btn>
-            </router-link>
+            <v-btn
+              color="primary"
+              :disabled="!isFormValid"
+              @click="submitCardInfo()"
+              >Submit</v-btn
+            >
           </v-card-actions>
         </v-card>
       </v-col>
@@ -50,6 +51,7 @@
 </template>
 
 <script>
+import store from "../store.js";
 export default {
   data() {
     return {
@@ -66,9 +68,10 @@ export default {
   },
   methods: {
     submitCardInfo() {
-      store.creditCard.cardNumber = this.cardNumber;
-      store.creditCard.expirationDate = this.expirationDate;
-      store.creditCard.cardHolder = this.cardHolder;
+      store.cardNumber = this.cardNumber;
+      store.expirationDate = this.expirationDate;
+      store.cardHolder = this.cardHolder;
+      this.$router.push({ name: "end" });
     },
   },
 };

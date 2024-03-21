@@ -23,7 +23,9 @@
       </h1>
     </div>
     <div class="d-flex justify-center mt-16">
-      <v-btn color="blue" x-large rounded to="/card"> Continue </v-btn>
+      <v-btn color="blue" x-large rounded @click="SavePrice()">
+        Continue
+      </v-btn>
     </div>
   </v-container>
 </template>
@@ -32,6 +34,11 @@
 import store from "../store.js";
 
 export default {
+  data() {
+    return {
+      Price: 0,
+    };
+  },
   computed: {
     // ... (previous computed properties)
 
@@ -64,7 +71,14 @@ export default {
     // Updated computed property for total price
     totalPrice() {
       const baseCost = this.baseCost * this.selectedDuration;
+      this.Price = baseCost + this.differentLocationFee;
       return baseCost + this.differentLocationFee;
+    },
+  },
+  methods: {
+    SavePrice() {
+      store.Price = this.Price;
+      this.$router.push({ name: "card" });
     },
   },
 };
