@@ -1,15 +1,21 @@
 <template>
   <v-container>
-    <div class="d-flex justify-center mt-16">
+    <div
+      class="d-flex justify-center mt-16 animate__animated animate__fadeInDown"
+    >
       <h1 class="text-8xl font-semibold uppercase tekst">PuMobile</h1>
     </div>
-    <div class="d-flex justify-center mt-8">
+    <div class="d-flex justify-center mt-8 animate__animated animate__fadeInUp">
       <h2 class="text-8xl font-semibold uppercase start">Choose option</h2>
     </div>
-    <div class="d-flex justify-center mt-16">
+    <div
+      class="d-flex justify-center mt-16 animate__animated animate__fadeInLeft"
+    >
       <v-btn depressed color="blue" to="/login" x-large rounded> Log in </v-btn>
     </div>
-    <div class="d-flex justify-center mt-16">
+    <div
+      class="d-flex justify-center mt-16 animate__animated animate__fadeInRight"
+    >
       <v-btn depressed color="blue" to="/signup" x-large rounded>
         Sign up
       </v-btn>

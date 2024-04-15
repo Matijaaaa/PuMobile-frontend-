@@ -1,17 +1,21 @@
 <template>
   <v-container>
-    <div class="d-flex justify-center mt-10">
+    <div
+      class="d-flex justify-center mt-10 animate__animated animate__fadeInDown"
+    >
       <img src="@/assets/scooterhome.png" :width="200" alt="" />
     </div>
-    <div class="mt-2 d-flex justify-center mt-8">
+    <div
+      class="mt-2 d-flex justify-center mt-8 animate__animated animate__fadeInUp"
+    >
       <h1 class="text-8xl font-semibold uppercase naslov">PuMobile</h1>
     </div>
-    <div class="d-flex justify-center">
+    <div class="d-flex justify-center animate__animated animate__fadeInUp">
       <h1 class="text-lg font-semibold naslov2">Be on the move</h1>
     </div>
-    <div class="d-flex justify-center mt-16">
+    <div class="d-flex justify-center mt-16 animate__animated animate__fadeIn">
       <v-btn
-        class="py-8"
+        class="py-8 animate__animated animate__bounce animate__slower"
         elevation="24"
         x-large
         rounded
@@ -19,8 +23,8 @@
         to="/start"
       >
         <v-icon>mdi-plus</v-icon>
-        Get started</v-btn
-      >
+        Get started
+      </v-btn>
     </div>
   </v-container>
 </template>
