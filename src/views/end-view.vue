@@ -40,11 +40,8 @@
   font-weight: 400;
   font-size: 70px;
   line-height: 20px;
-  /* identical to box height, or 117% */
 
   letter-spacing: -1.5px;
-
-  /* 00. On Surface / High Emphasis */
 
   color: rgba(0, 0, 0, 0.87);
 

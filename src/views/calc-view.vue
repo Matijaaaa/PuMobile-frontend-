@@ -40,8 +40,6 @@ export default {
     };
   },
   computed: {
-    // ... (previous computed properties)
-
     // Updated computed property for selectedDuration
     selectedDuration() {
       const pickupTime = store.selectedPickupTime;
@@ -53,7 +51,7 @@ export default {
         return durationInMillis / (1000 * 60 * 60); // Duration in hours
       }
 
-      return 0; // Return 0 if pickup or drop-off time is not available
+      return 0;
     },
 
     // Updated computed property for base cost

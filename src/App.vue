@@ -33,18 +33,12 @@ export default {
   },
   async mounted() {
     this.getHelloWorld();
-
-    //this.testRegister();
   },
   methods: {
     async getHelloWorld() {
       const response = await getHelloWorld();
       console.log(response);
     },
-    /*async testRegister() {
-      const response = await register();
-      console.log(response);
-    },*/
   },
 };
 </script>
