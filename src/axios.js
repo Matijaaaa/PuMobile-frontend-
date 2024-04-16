@@ -3,7 +3,7 @@ import $router from "@/router";
 import store from "./store.js";
 
 const instance = axios.create({
-  baseURL: "http://localhost:3000", //adresa backenda
+  baseURL: "https://pumobile-backend.onrender.com", //adresa backenda
   timeout: 3000, // 3 sekunda
 });
 
